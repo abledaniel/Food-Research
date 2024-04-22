@@ -5,7 +5,7 @@ openai.api_key = ""
 
 def chat_gpt(text):
     response = openai.ChatCompletion.create (
-        model="gpt-3.5-turbo",
+        model="gpt-4-turbo",
         messages=[{"role": "user", "content": text}]
     )
     
@@ -37,19 +37,19 @@ if __name__ == "__main__":
         word = chat_gpt(input + row)
         food_result.append(word)
         num += 1
-        if num == 5:
+        if num == 3:
             break
+        input4 = "Find relevant information about each of the food a human to learn what food to cook with it and how to recycle it the result itself it must be very short and brief overall under 25 words for each FOOD make sure it is in PYTHON list DO NOT INCLUDE /n at all"
         input3 = "Examine this Python list closely. Your job is to carefully go through each word and decide if it belongs in the realm of food. Your goal is to remove any words that don't relate to food, leaving only those that are FOOD items not food related so it is edible. REMOVE THE WORDS BUT RETURN IT AS A PYTHON LIST NO OTHER WORDS I NEED IT TO BE FORMATTED CORRECTLY PLEASE SO NO /n."
         # input2 = "Check if this python text is food If it isn't food return a singular word True or False ONLY A SINGULAR WORD. If the list contains ANY words that are not Food say False"
-        checked = chat_gpt(input3 + word)
+        checked = chat_gpt(input4 + word)
         checked_food_results.append(checked)
     input4 = "Find relevant information about the food itself"
     final_results = []
-    food_result = []
         
     print("ChatBot Inital Results: ", food_result)
     print("ChatBot Checked Results: ", checked_food_results)
-    print("Final Results: ", final_results)
+    # print("Final Results: ", final_results)
 
     
     # while True:
